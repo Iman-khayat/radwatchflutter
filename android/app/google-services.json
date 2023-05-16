@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "822623144854",
+    "project_id": "radwatchflutter",
+    "storage_bucket": "radwatchflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822623144854:android:b40ad6c5dcc305066e6bb7",
+        "android_client_info": {
+          "package_name": "com.example.radwatchflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "822623144854-ltpqd3rf12du3e2hqsc0qusugcpdhotv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2VImfpP7dqQAFoHYrCvYdOAOqANeLHeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "822623144854-ltpqd3rf12du3e2hqsc0qusugcpdhotv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

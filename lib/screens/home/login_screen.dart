@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:radwatchflutter/screens/constants.dart';
+import 'package:radwatchflutter/services/auth.dart';
+import '../data_screen.dart';
  
  
  
 
 class LoginScreen extends StatelessWidget {
+  final AuthService auth=AuthService();
   static String id="loginScreen";
-  const LoginScreen();
+    LoginScreen({super.key});
+  
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,6 +71,7 @@ class LoginScreen extends StatelessWidget {
 
     width: 300,
     child: const TextField(
+      keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         border: InputBorder.none,
         hintText: "Email : ",
@@ -82,6 +88,7 @@ class LoginScreen extends StatelessWidget {
 
     width: 300,
     child: const TextField(
+       
       decoration: InputDecoration(
         border: InputBorder.none,
         hintText: "Password : ",
@@ -91,7 +98,17 @@ class LoginScreen extends StatelessWidget {
     ),
     ),
     ElevatedButton(
-      onPressed: (){},
+      onPressed: ()async{
+       dynamic result= await auth.signInAnon();
+       if (result == null){
+        print('error login');
+       }else{
+        print('logged in');
+        print(result);
+        Navigator.pushNamed(context,DataScreen.id);
+       }
+        
+      },
        child:Text( 
        "Login",
        style: TextStyle(fontSize: 20),
@@ -110,10 +127,6 @@ class LoginScreen extends StatelessWidget {
        
        
        )
-   
-    
-   
-  
  ]
  )
  )

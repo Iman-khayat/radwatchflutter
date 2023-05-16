@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:radwatchflutter/screens/login_screen.dart';
+import 'package:radwatchflutter/screens/data_screen.dart';
+import 'package:radwatchflutter/screens/home/login_screen.dart';
 
 void main()=>runApp(const MyApp());
 
@@ -14,8 +15,10 @@ return MaterialApp(
   routes: 
   {
      LoginScreen.id:(context)=>LoginScreen(),
-     
+     DataScreen.id:(context)=>DataScreen(),
  },
 );
   }
  }
+ 
+  
