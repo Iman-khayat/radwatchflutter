@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-const maincolor =Color(0x0D2329);
-const greencolor =Color(0x518A00);
-const lightgreencolor =Color(0xD1FF5D);
-const yallowcolor =Color(0xF7D060);
+const maincolor =Color(0x000d2329);
+const greencolor =Color(0x00518a00);
+const lightgreencolor =Color(0x00d1ff5d);
+const yallowcolor =Color(0x00f7d060);
 

@@ -59,7 +59,7 @@ flutter:
   uses-material-design: true
   assets:
    - images/
-   - images/radwatchimg.png/
+   - images/radwatchimg.png
       
 
   # To add assets to your application, add an assets section, like this:
