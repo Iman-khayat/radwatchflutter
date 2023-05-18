@@ -1,7 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:radwatchflutter/screens/data_screen.dart';
 import 'package:radwatchflutter/screens/home/login_screen.dart';
+import 'package:radwatchflutter/screens/wrapper.dart';
+import 'package:radwatchflutter/services/auth.dart';
+import 'package:provider/provider.dart';
 
 void main()=>runApp(const MyApp());
 
@@ -10,15 +14,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-return MaterialApp(
-  initialRoute: LoginScreen.id,
-  routes: 
-  {
-     LoginScreen.id:(context)=>LoginScreen(),
-     DataScreen.id:(context)=>DataScreen(),
- },
-);
+    return StreamProvider.value(
+      value:AuthService().user,
+      initialData: null,
+      child: MaterialApp(
+        home: Wrapper(),
+      ),
+      );
+      }
+
   }
- }
+ 
  
   

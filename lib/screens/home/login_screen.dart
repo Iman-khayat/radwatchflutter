@@ -8,6 +8,13 @@ import '../data_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   final AuthService auth=AuthService();
+  final formKey=GlobalKey<FormState>();
+ 
+   //text field state
+  String email = '';
+  String password='';
+  String error ='';
+  
   static String id="loginScreen";
     LoginScreen({super.key});
   
@@ -31,25 +38,29 @@ class LoginScreen extends StatelessWidget {
 
           leading:IconButton(
             icon: const Icon(Icons.menu),
-            onPressed: () {}
+            onPressed: (){}
             ) ,
 
         actions: [
           IconButton(
-            icon :const Icon( Icons.info),
+            icon :const Icon( Icons.person),
           onPressed:() {
             
           }),
           IconButton( 
             icon :const Icon( Icons.close),
-          onPressed:() {})
+          onPressed:() async{
+          await auth.signout();
+          })
        ]
        ),
+
  body :Container( 
  width: double.infinity,
  
   child: Column(
-  
+      key:formKey,
+
   children :[
     Container(
       color: maincolor,
@@ -71,6 +82,8 @@ class LoginScreen extends StatelessWidget {
 
     width: 300,
     child: const TextField(
+      //validator : (val)=>val.isEmpty ? 'Enter an email':null,
+      // onChanged: (val) {setState(()=> email=val);  },
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         border: InputBorder.none,
@@ -79,7 +92,8 @@ class LoginScreen extends StatelessWidget {
         ),
       
     ),
-    ),Container(
+    ),
+    Container(
     margin: EdgeInsets.only(top :22.0,bottom:22.0),
     alignment: Alignment.bottomCenter,
     decoration: BoxDecoration(color: Colors.amber[100],
@@ -88,27 +102,32 @@ class LoginScreen extends StatelessWidget {
 
     width: 300,
     child: const TextField(
-       
-      decoration: InputDecoration(
+     //validator : (val)=>val.isEmpty ? 'Enter an email':null,
+     // onChanged: (Val) {setState(()=> password = val);},
+         obscureText: true,
+        decoration: InputDecoration(
         border: InputBorder.none,
         hintText: "Password : ",
         prefixIcon: Icon(Icons.lock)
         ),
-      
     ),
     ),
+    
+    ];
     ElevatedButton(
+    key: formKey,
       onPressed: ()async{
-       dynamic result= await auth.signInAnon();
-       if (result == null){
-        print('error login');
-       }else{
-        print('logged in');
-        print(result.uid);
-        Navigator.pushNamed(context,DataScreen.id);
-       }
+        if(formKey.currentState.validate()){
+          dynamic result = await auth.signInWithEmailAndPassword(email,password);
+          Navigator.pushNamed(context,DataScreen.id);
         
-      },
+        if(result == null ){
+          setState(()=>error = 'COULD NOT SIGN IN WITH THOSE CEDENTAILS')
+        }
+         }
+        } 
+       ),
+  
        child:Text( 
        "Login",
        style: TextStyle(fontSize: 20),
@@ -120,17 +139,12 @@ class LoginScreen extends StatelessWidget {
         backgroundColor: MaterialStateProperty.all(Colors.amber),
         padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical :20,horizontal:105)),
         shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(22))),
-
-       
-       
        ),
-       
-       
-       )
- ]
- )
- )
-);  
-  }
 
+        ),     
+       ),
+    
+ );
+
+  }
 }

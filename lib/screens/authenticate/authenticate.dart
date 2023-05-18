@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:radwatchflutter/screens/home/login_screen.dart';
 
 
  class Authenticate extends StatefulWidget {
@@ -9,10 +10,9 @@ import 'package:flutter/material.dart';
 }
 
 class _AuthenticateState extends State<Authenticate> {
-  @override
+  
+   @override
   Widget build(BuildContext context) {
-    return  Container(
-      child :Text('authenticate'),
-    );
+    return  LoginScreen();
   }
 }
