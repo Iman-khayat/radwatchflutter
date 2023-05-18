@@ -104,7 +104,7 @@ class LoginScreen extends StatelessWidget {
         print('error login');
        }else{
         print('logged in');
-        print(result);
+        print(result.uid);
         Navigator.pushNamed(context,DataScreen.id);
        }
         
