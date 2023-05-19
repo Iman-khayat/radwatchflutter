@@ -17,6 +17,8 @@ class LoginScreen extends StatelessWidget {
   
   static String id="loginScreen";
     LoginScreen({super.key});
+    
+      get child => null;
   
   
   @override
@@ -61,7 +63,7 @@ class LoginScreen extends StatelessWidget {
   child: Column(
       key:formKey,
 
-  children :[
+  children :<Widget>[
     Container(
       color: maincolor,
       width: 600,
@@ -110,29 +112,24 @@ class LoginScreen extends StatelessWidget {
         hintText: "Password : ",
         prefixIcon: Icon(Icons.lock)
         ),
-    ),
-    ),
-    
-    ];
+    ),  
+  ),
     ElevatedButton(
     key: formKey,
       onPressed: ()async{
-        if(formKey.currentState.validate()){
+        
+        if(formKey.currentState!.validate()){
           dynamic result = await auth.signInWithEmailAndPassword(email,password);
           Navigator.pushNamed(context,DataScreen.id);
         
         if(result == null ){
-          setState(()=>error = 'COULD NOT SIGN IN WITH THOSE CEDENTAILS')
-        }
-         }
-        } 
-       ),
-  
-       child:Text( 
-       "Login",
-       style: TextStyle(fontSize: 20),
 
-       ),
+         }
+         }
+        }, child: null,
+       
+  
+       
        style: ButtonStyle(
         
         alignment: Alignment.bottomCenter,
@@ -140,7 +137,8 @@ class LoginScreen extends StatelessWidget {
         padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical :20,horizontal:105)),
         shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(22))),
        ),
-
+       ),
+],
         ),     
        ),
     

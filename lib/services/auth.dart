@@ -34,7 +34,7 @@ Future signInAnon()async{
     return userFromFirebaseUser(user!);
 
     }catch(e){
-    print (e.toString());
+    print(e.toString());
     return null ;
     }
   }
