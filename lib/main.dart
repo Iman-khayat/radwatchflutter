@@ -7,6 +7,7 @@ import 'package:radwatchflutter/screens/home/login_screen.dart';
 import 'package:radwatchflutter/screens/wrapper.dart';
 import 'package:radwatchflutter/services/auth.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core_web/firebase_core_web.dart';
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();

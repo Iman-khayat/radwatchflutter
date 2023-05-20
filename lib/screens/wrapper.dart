@@ -3,6 +3,7 @@ import 'package:radwatchflutter/screens/authenticate/authenticate.dart';
 import 'package:radwatchflutter/screens/home/login_screen.dart';
 import 'package:radwatchflutter/models/user.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core_web/firebase_core_web.dart';
 
 class Wrapper extends StatelessWidget {
   @override
