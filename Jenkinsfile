@@ -6,9 +6,19 @@ pipeline {
         timeout(time: 1, unit: 'SECONDS')
     }
     stages {
-        stage('Example') {
+        stage('build') {
             steps {
-                echo 'Hello World'
+                echo 'build completed'
+            }
+        }
+         stage('test') {
+            steps {
+                echo 'testing completed'
+            }
+        }
+         stage('deploy') {
+            steps {
+                echo 'deployment completed'
             }
         }
     }
