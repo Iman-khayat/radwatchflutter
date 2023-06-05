@@ -21,7 +21,7 @@ class Welcome extends StatelessWidget {
                  SizedBox(height: 35,),
                 Image.asset("assets/images/logo.png",),
                 ElevatedButton(onPressed:(){
-                  Navigator.pushNamed(context, '/login');
+                  Navigator.pushNamed(context, '/LoginScreen');
                 },
                 child: Text(
                   "Login",
