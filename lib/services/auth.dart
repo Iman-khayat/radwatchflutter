@@ -1,13 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:radwatchflutter/models/user.dart';
-import 'package:firebase_core_web/firebase_core_web.dart';
  
  
 class AuthService{
   final FirebaseAuth auth=FirebaseAuth.instance;
   //create user obj based on FirebaseUser
   Users? userFromFirebaseUser(User user){
-    return user != null ? Users(uid:user.uid):null ;
+     // ignore: unnecessary_null_comparison
+     return user != null ? Users(id:user.uid):null ;
   }
   //auth change user stream 
   Stream<User>get user{
@@ -15,18 +15,7 @@ return  auth.authStateChanges()
     //.map((User user)=>userFromFirebaseUser(user));
     .map(userFromFirebaseUser as User Function(User? event));
   }
-  //sign in anon
-Future signInAnon()async{
-  try{
-  UserCredential result = await auth.signInAnonymously();
-    
-    User user= result.credential as User;
-    return userFromFirebaseUser(user);
-  }catch(e){
-          print(e.toString());
-          return null;
-  }
-}
+ 
   //sing in with email and password
   Future signInWithEmailAndPassword(String email,String password)async{
     try{

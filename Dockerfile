@@ -1,11 +1,14 @@
+
+FROM openpriv/flutter-desktop:latest
  
 
-FROM gradle:latest
-FROM dart:latest
-FROM airbyte/firebase-emulator:latest
-FROM mobiledevops/flutter-sdk-image:latest
+WORKDIR /apps
+COPY pubspec.yaml .
+RUN flutter install
+COPY . .
 
+EXPOSE 5000
 
-
-CMD ["dart","main.dart"]
  
+CMD ["flutter ","run"]
+

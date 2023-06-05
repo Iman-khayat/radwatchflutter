@@ -6,7 +6,7 @@ import 'package:radwatchflutter/screens/constants.dart';
 
 class DataScreen extends StatelessWidget {
   static String id="datascreen";
-  const DataScreen();
+  const DataScreen({super.key});
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -40,7 +40,7 @@ class DataScreen extends StatelessWidget {
           onPressed:() {})
        ]
        ),
- body :Container( 
+ body :SizedBox( 
  width: double.infinity,
  
   child: Column(

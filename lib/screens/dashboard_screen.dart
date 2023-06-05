@@ -3,6 +3,8 @@ import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 
 class dashboard_screen extends StatelessWidget {
   static const String id='dashboard_screen';
+
+  const dashboard_screen({super.key});
   @override
   Widget build(BuildContext context) {
     return AdminScaffold(

@@ -2,21 +2,17 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:radwatchflutter/screens/data_screen.dart';
-import 'package:radwatchflutter/screens/home/login_screen.dart';
 import 'package:radwatchflutter/screens/wrapper.dart';
 import 'package:radwatchflutter/services/auth.dart';
-import 'package:provider/provider.dart';
-import 'package:firebase_core_web/firebase_core_web.dart';
-
+ 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp( options: FirebaseOptions(
+  await Firebase.initializeApp( options: const FirebaseOptions(
         apiKey: "",
         appId: "",
         messagingSenderId: "",
         projectId: ""));
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
  
@@ -28,7 +24,7 @@ class MyApp extends StatelessWidget {
     return StreamProvider.value(
       value:AuthService().user,
       initialData: null,
-      child: MaterialApp(
+      child: const MaterialApp(
         home: Wrapper(),
       ),
       );

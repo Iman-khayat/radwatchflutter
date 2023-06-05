@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:radwatchflutter/screens/constants.dart';
 import 'package:radwatchflutter/services/auth.dart';
 import '../data_screen.dart';
-import 'package:firebase_core_web/firebase_core_web.dart';
  
  
  
@@ -58,7 +57,7 @@ class LoginScreen extends StatelessWidget {
        ]
        ),
 
- body :Container( 
+ body :SizedBox( 
  width: double.infinity,
  
   child: Column(
@@ -77,7 +76,7 @@ class LoginScreen extends StatelessWidget {
               ), 
     ),
     Container(
-    margin: EdgeInsets.only(top :22.0),
+    margin: const EdgeInsets.only(top :22.0),
     alignment: Alignment.bottomCenter,
     decoration: BoxDecoration(color: Colors.amber[100],
     borderRadius: BorderRadius.circular(22)
@@ -97,7 +96,7 @@ class LoginScreen extends StatelessWidget {
     ),
     ),
     Container(
-    margin: EdgeInsets.only(top :22.0,bottom:22.0),
+    margin: const EdgeInsets.only(top :22.0,bottom:22.0),
     alignment: Alignment.bottomCenter,
     decoration: BoxDecoration(color: Colors.amber[100],
     borderRadius: BorderRadius.circular(22)
@@ -135,7 +134,7 @@ class LoginScreen extends StatelessWidget {
         
         alignment: Alignment.bottomCenter,
         backgroundColor: MaterialStateProperty.all(Colors.amber),
-        padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical :20,horizontal:105)),
+        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(vertical :20,horizontal:105)),
         shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(22))),
        ),
        ),
